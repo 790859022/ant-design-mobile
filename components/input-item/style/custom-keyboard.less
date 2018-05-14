@@ -71,9 +71,6 @@
 }
 
 .@{keyboardPrefixCls}-wrapper {
-  &.@{keyboardPrefixCls}-wrapper-hide {
-    bottom: -500 * @hd;
-  }
   position: fixed;
   bottom: 0;
   left: 0;
@@ -83,9 +80,7 @@
   z-index: 10000;
   font-family: 'PingFang SC';
   background-color: #f6f6f7;
-  transition-duration: 0.2s;
-  transition-property: transform display;
-  transform: translateZ(0);
+  animation: 0.2s keyboard-appear;
 
   table {
     width: 100%;
@@ -161,5 +156,19 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes keyboard-appear {
+  from {
+    height: 0;
+  }
+
+  50% {
+    height: 100 * @hd;
+  }
+
+  to {
+    height: 200 * @hd;
   }
 }
